@@ -22,32 +22,38 @@ public class SnakeAndLadder {
         while (current_position < END_POS) {
 
             int DICE = random.nextInt(6) + 1;
-            System.out.println("Rolling dice: " + DICE);
+            // System.out.println("Rolling dice: " + DICE);
 
             int action = random.nextInt(3);
-            System.out.println("Action dice: " + action);
+            // System.out.println("Action dice: " + action);
 
             // UC3 Check the play.
 
             if (action == LADDER && (current_position + DICE <= END_POS)) {
 
                 current_position = current_position + DICE;
-                System.out.println("Current position is: " + current_position);
+                // System.out.println("Current position is: " + current_position);
 
             } else if (action == SNAKE && (current_position - DICE >= START_POS)) {
 
                 current_position = current_position - DICE;
-                System.out.println("Current position is: " + current_position);
+                // System.out.println("Current position is: " + current_position);
 
             } else if (action == NO_PLAY) {
-                System.out.println("No Play");
+                // System.out.println("No Play");
             }
-            // System.out.println(" " + current_position);
+            System.out.print(current_position + " ");
         }
+        // UC5 The player gets excat wining
+        System.out.println();
+        System.out.println(
+                "----------------------------------------------------------------------------------------------------");
+        System.out.println("Congratulation");
+        System.out.println("You win the game. ");
+        System.out.println("Your Position is: " + current_position);
     }
 
     public static void main(String[] args) {
         GamePlayed();
     }
-
 }
