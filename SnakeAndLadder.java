@@ -16,22 +16,33 @@ public class SnakeAndLadder {
     public static void GamePlayed() {
         // UC2 Rolling the dice to get a number between 1 to 6
         Random random = new Random();
-        int DICE = random.nextInt(6) + 1;
-        System.out.println("Rolling dice: " + DICE);
         int current_position = START_POS;
-        int action = random.nextInt(3);
-        System.out.println("Action dice: " + action);
 
-        // UC3 Check the play.
-        if (action == LADDER && (current_position + DICE <= END_POS)) {
-            current_position += DICE;
-            System.out.println("Current position is: " + current_position);
-        } else if (action == SNAKE && (current_position - DICE >= START_POS)) {
-            current_position -= DICE;
-            System.out.println("Current position is: " + current_position);
+        // UC4 Loop until reaches to Ending Position
+        while (current_position < END_POS) {
 
-        } else if (action == NO_PLAY) {
-            System.out.println("No Play");
+            int DICE = random.nextInt(6) + 1;
+            System.out.println("Rolling dice: " + DICE);
+
+            int action = random.nextInt(3);
+            System.out.println("Action dice: " + action);
+
+            // UC3 Check the play.
+
+            if (action == LADDER && (current_position + DICE <= END_POS)) {
+
+                current_position = current_position + DICE;
+                System.out.println("Current position is: " + current_position);
+
+            } else if (action == SNAKE && (current_position - DICE >= START_POS)) {
+
+                current_position = current_position - DICE;
+                System.out.println("Current position is: " + current_position);
+
+            } else if (action == NO_PLAY) {
+                System.out.println("No Play");
+            }
+            // System.out.println(" " + current_position);
         }
     }
 
