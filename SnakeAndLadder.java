@@ -17,7 +17,8 @@ public class SnakeAndLadder {
         // UC2 Rolling the dice to get a number between 1 to 6
         Random random = new Random();
         int current_position = START_POS;
-
+        String task = null;
+        int total_dice_count = 0;
         // UC4 Loop until reaches to Ending Position
         while (current_position < END_POS) {
 
@@ -26,23 +27,26 @@ public class SnakeAndLadder {
 
             int action = random.nextInt(3);
             // System.out.println("Action dice: " + action);
-
+            total_dice_count++;
             // UC3 Check the play.
 
             if (action == LADDER && (current_position + DICE <= END_POS)) {
 
                 current_position = current_position + DICE;
+                task = "Ladder";
                 // System.out.println("Current position is: " + current_position);
 
             } else if (action == SNAKE && (current_position - DICE >= START_POS)) {
 
                 current_position = current_position - DICE;
+                task = "Snake";
                 // System.out.println("Current position is: " + current_position);
 
             } else if (action == NO_PLAY) {
+                task = "No Play";
                 // System.out.println("No Play");
             }
-            System.out.print(current_position + " ");
+            System.out.println("| Dice:" + DICE + " " + task + " and Current position:" + current_position + " |");
         }
         // UC5 The player gets excat wining
         System.out.println();
@@ -51,6 +55,7 @@ public class SnakeAndLadder {
         System.out.println("Congratulation");
         System.out.println("You win the game. ");
         System.out.println("Your Position is: " + current_position);
+        System.out.println("Total Count of Dice: " + total_dice_count);
     }
 
     public static void main(String[] args) {
